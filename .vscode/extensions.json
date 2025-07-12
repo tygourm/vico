@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    // Mandatory
+    "continue.continue",
+    "esbenp.prettier-vscode",
+    "tamasfe.even-better-toml",
+
+    // Optional
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme",
+    "seatonjiang.gitmoji-vscode"
+  ]
+}

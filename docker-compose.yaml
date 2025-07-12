@@ -1,0 +1,32 @@
+services:
+  webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - 80:8080
+    volumes:
+      - ./volumes/webui:/app/backend/data
+    environment:
+      WEBUI_AUTH: False
+      OLLAMA_BASE_URL: http://ollama:11434
+
+  docs:
+    image: squidfunk/mkdocs-material:9.6.15
+    ports:
+      - 8000:8000
+    volumes:
+      - ./docs:/docs/docs
+      - ./mkdocs.yml:/docs/mkdocs.yml
+
+  ollama:
+    image: ollama/ollama:0.9.6
+    ports:
+      - 11434:11434
+    volumes:
+      - ./volumes/ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

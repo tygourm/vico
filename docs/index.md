@@ -1,0 +1,102 @@
+# VICO
+
+Local VIbe COding assistant. This acronym was suggested by a LLM and I accepted
+it without hesitation.
+
+## Setup
+
+This project uses [uv](https://docs.astral.sh/uv) as a Python package and
+project manager.
+
+Install Python dependencies.
+
+```bash
+uv sync --frozen
+```
+
+Activate the virtual environment.
+
+```bash
+source .venv/bin/activate
+```
+
+Start the deployment.
+
+```bash
+docker compose up
+```
+
+Download the models.
+
+```bash
+ollama=$(docker ps | grep ollama | awk '{print $1}')
+docker exec $ollama ollama pull nomic-embed-text:v1.5
+docker exec $ollama ollama pull qwen2.5-coder:7b-base
+docker exec $ollama ollama pull llama3.1:8b
+```
+
+## Usage
+
+### Continue
+
+Configure [Continue](https://www.continue.dev) with the models downloaded above,
+here is an example configuration file:
+
+```yaml
+name: VICO
+version: 1.0.0
+schema: v1
+models:
+  - name: Llama 3.1 8B
+    provider: ollama
+    model: llama3.1:8b
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: Qwen2.5-Coder 7B Base
+    provider: ollama
+    model: qwen2.5-coder:7b-base
+    roles:
+      - autocomplete
+  - name: Nomic Embed Text v1.5
+    provider: ollama
+    model: nomic-embed-text:v1.5
+    roles:
+      - embed
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
+```
+
+### Open WebUI
+
+You can interact with the models from your IDE with Continue, but you can also
+use the [Open WebUI](https://openwebui.com) instance accessible at
+[http://localhost](http://localhost).
+
+### Material for MkDocs
+
+This project uses
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material) as a
+documentation framework.
+
+Serve the docs.
+
+```bash
+mkdocs serve
+```
+
+Build the docs.
+
+```bash
+mkdocs build
+```
+
+In the deployment, the docs are accessible at
+[http://localhost:8000](http://localhost:8000).
