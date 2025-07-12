@@ -12,8 +12,7 @@ to the MAJOR.MINOR.PATCH format.
 From `develop` branch for a major or minor release, or `master` for a patch:
 
 - `git checkout -b release/x.y.z`
-- Update the references to the current version in the sources
-- Update the lock file with `uv sync`
+- Update the references to the current version in the project
 - Update the [Changelog](CHANGELOG.md), set the new version with the release
   date
 - Commit as `🔖 Version x.y.z`, create a release from the branch with a tag, and

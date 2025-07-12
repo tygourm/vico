@@ -5,21 +5,6 @@ it without hesitation.
 
 ## Setup
 
-This project uses [uv](https://docs.astral.sh/uv) as a Python package and
-project manager.
-
-Install Python dependencies.
-
-```bash
-uv sync --frozen
-```
-
-Activate the virtual environment.
-
-```bash
-source .venv/bin/activate
-```
-
 Start the deployment.
 
 ```bash
@@ -32,24 +17,24 @@ Download the models.
 ollama=$(docker ps | grep ollama | awk '{print $1}')
 docker exec $ollama ollama pull nomic-embed-text:v1.5
 docker exec $ollama ollama pull qwen2.5-coder:7b-base
-docker exec $ollama ollama pull llama3.1:8b
+docker exec $ollama ollama pull qwen2.5-coder:7b
 ```
 
 ## Usage
 
 ### Continue
 
-Configure [Continue](https://www.continue.dev) with the models downloaded above,
-here is an example configuration file:
+Configure [Continue](https://www.continue.dev), here is an example configuration
+with the models downloaded previously.
 
 ```yaml
 name: VICO
 version: 1.0.0
 schema: v1
 models:
-  - name: Llama 3.1 8B
+  - name: Qwen2.5-Coder 7B
     provider: ollama
-    model: llama3.1:8b
+    model: qwen2.5-coder:7b
     roles:
       - chat
       - edit
@@ -84,19 +69,5 @@ use the [Open WebUI](https://openwebui.com) instance accessible at
 
 This project uses
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material) as a
-documentation framework.
-
-Serve the docs.
-
-```bash
-mkdocs serve
-```
-
-Build the docs.
-
-```bash
-mkdocs build
-```
-
-In the deployment, the docs are accessible at
+documentation framework, the docs are accessible at
 [http://localhost:8000](http://localhost:8000).
