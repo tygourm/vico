@@ -63,7 +63,7 @@ context:
 
 You can interact with the models from your IDE with Continue, but you can also
 use the [Open WebUI](https://openwebui.com) instance accessible at
-[http://localhost](http://localhost).
+[http://localhost:8080](http://localhost:8080).
 
 ### Material for MkDocs
 
