@@ -6,6 +6,7 @@ services:
     volumes:
       - ./docs:/docs/docs
       - ./mkdocs.yml:/docs/mkdocs.yml
+      - ./volumes/mkdocs:/docs/.cache
 
   webui:
     image: ghcr.io/open-webui/open-webui:v0.6.16
@@ -15,7 +16,12 @@ services:
       - ./volumes/webui:/app/backend/data
     environment:
       WEBUI_AUTH: False
+      ENABLE_CODE_EXECUTION: False
+      ENABLE_CODE_INTERPRETER: False
+      ENABLE_EVALUATION_ARENA_MODELS: False
       OLLAMA_BASE_URL: http://ollama:11434
+      RAG_EMBEDDING_ENGINE: ollama
+      RAG_EMBEDDING_MODEL: nomic-embed-text:v1.5
 
   ollama:
     image: ollama/ollama:0.9.6
