@@ -29,7 +29,7 @@ with the models downloaded previously.
 
 ```yaml
 name: VICO
-version: 1.3.1
+version: 1.3.2
 schema: v1
 models:
   - name: Qwen2.5-Coder 7B
