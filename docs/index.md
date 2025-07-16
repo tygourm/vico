@@ -5,61 +5,52 @@ it without hesitation.
 
 ## Setup
 
-Start the deployment.
+Download the models that match the best your performance requirements and your
+system capabilities. You can also try other variants, these are just some
+suggestions. You need an embedding model, a base/code model and an instruct
+model. The models will not be loaded simultaneously.
 
 ```bash
-docker compose up
-```
+docker exec -it $(docker ps | grep ollama | awk '{print $1}') bash
 
-Download the models.
+# Embeddings - 274 MB
+ollama pull nomic-embed-text:v1.5
 
-```bash
-ollama=$(docker ps | grep ollama | awk '{print $1}')
-docker exec $ollama ollama pull nomic-embed-text:v1.5
-docker exec $ollama ollama pull qwen2.5-coder:7b-base
-docker exec $ollama ollama pull qwen2.5-coder:1.5b-instruct
+# Qwen 2.5 Coder 3B - 1.9 GB
+ollama pull qwen2.5-coder:3b-base
+ollama pull qwen2.5-coder:3b-instruct
+
+# CodeGemma 7B - 5.0 GB
+ollama pull codegemma:7b-code
+ollama pull codegemma:7b-instruct
+
+# Code Llama 13B - 7.4 GB
+ollama pull codellama:13b-code
+ollama pull codellama:13b-instruct
 ```
 
 ## Usage
 
 ### Continue
 
-Configure [Continue](https://www.continue.dev), here is an example configuration
-with the models downloaded previously.
+Configure [Continue](https://www.continue.dev) with the models downloaded above.
 
-```yaml
-name: VICO
-version: 1.3.2
-schema: v1
-models:
-  - name: Qwen2.5-Coder 7B Instruct
-    provider: ollama
-    model: qwen2.5-coder:1.5b-instruct
-    apiBase: http://localhost:10002
-    roles:
-      - chat
-      - edit
-      - apply
-  - name: Qwen2.5-Coder 7B Base
-    provider: ollama
-    model: qwen2.5-coder:7b-base
-    apiBase: http://localhost:10002
-    roles:
-      - autocomplete
-  - name: Nomic Embed Text v1.5
-    provider: ollama
-    model: nomic-embed-text:v1.5
-    apiBase: http://localhost:10002
-    roles:
-      - embed
-context:
-  - provider: code
-  - provider: docs
-  - provider: diff
-  - provider: terminal
-  - provider: problems
-  - provider: folder
-  - provider: codebase
+#### Qwen 2.5 Coder 3B
+
+```yaml title="config.yaml"
+--8<-- "config.qwencoder.yaml"
+```
+
+#### CodeGemma 7B
+
+```yaml title="config.yaml"
+--8<-- "config.codegemma.yaml"
+```
+
+#### Code Llama 13B
+
+```yaml title="config.yaml"
+--8<-- "config.codellama.yaml"
 ```
 
 ### Open WebUI

@@ -57,7 +57,7 @@ plugins:
 
 markdown_extensions:
   - admonition
-  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences
 
 nav:

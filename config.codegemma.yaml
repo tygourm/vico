@@ -1,0 +1,32 @@
+name: VICO CodeGemma 7B
+version: 1.3.2
+schema: v1
+models:
+  - name: CodeGemma 7B Instruct
+    provider: ollama
+    model: codegemma:7b-instruct
+    apiBase: http://localhost:10002
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: CodeGemma 7B Code
+    provider: ollama
+    model: codegemma:7b-code
+    apiBase: http://localhost:10002
+    roles:
+      - autocomplete
+  - name: Nomic Embed Text v1.5
+    provider: ollama
+    model: nomic-embed-text:v1.5
+    apiBase: http://localhost:10002
+    roles:
+      - embed
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase

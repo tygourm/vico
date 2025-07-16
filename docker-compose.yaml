@@ -19,6 +19,9 @@ services:
     ports:
       - 10001:8000
     volumes:
+      - ./config.codegemma.yaml:/docs/config.codegemma.yaml
+      - ./config.codellama.yaml:/docs/config.codellama.yaml
+      - ./config.qwencoder.yaml:/docs/config.qwencoder.yaml
       - ./docs:/docs/docs
       - ./mkdocs.yml:/docs/mkdocs.yml
       - ./volumes/mkdocs:/docs/.cache

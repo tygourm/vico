@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- ✨ Add three configurations
+
 ### Changed
 
 - 🔧 Change services ports
