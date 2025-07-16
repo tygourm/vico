@@ -16,6 +16,10 @@ and this project adheres to
 
 - 🔧 Remove Prettier default value
 
+### Fixed
+
+- ✏️ Fix model name
+
 ## [1.3.2] - 2025-07-15
 
 ### Fixed
