@@ -16,9 +16,9 @@ models:
     apiBase: http://localhost:10002
     roles:
       - autocomplete
-  - name: Nomic Embed Text v1.5
+  - name: Nomic Embed Code
     provider: ollama
-    model: nomic-embed-text:v1.5
+    model: hf.co/nomic-ai/nomic-embed-code-GGUF:Q4_K_M
     apiBase: http://localhost:10002
     roles:
       - embed

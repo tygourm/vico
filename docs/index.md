@@ -13,8 +13,8 @@ model. The models will not be loaded simultaneously.
 ```bash
 docker exec -it $(docker ps | grep ollama | awk '{print $1}') bash
 
-# Embeddings - 274 MB
-ollama pull nomic-embed-text:v1.5
+# Embeddings - 4.4 GB
+ollama pull hf.co/nomic-ai/nomic-embed-code-GGUF:Q4_K_M
 
 # Qwen 2.5 Coder 3B - 1.9 GB
 ollama pull qwen2.5-coder:3b-base
