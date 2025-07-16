@@ -7,6 +7,7 @@
     // Optional
     "oderwat.indent-rainbow",
     "pkief.material-icon-theme",
-    "seatonjiang.gitmoji-vscode"
+    "seatonjiang.gitmoji-vscode",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

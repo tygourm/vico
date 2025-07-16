@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Added
 
+- 🎨 Add Code Spell Checker
 - ✨ Add three configurations
 
 ### Changed
