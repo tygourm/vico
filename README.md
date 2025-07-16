@@ -35,6 +35,7 @@ models:
   - name: Qwen2.5-Coder 7B
     provider: ollama
     model: qwen2.5-coder:7b
+    apiBase: http://localhost:10002
     roles:
       - chat
       - edit
@@ -42,11 +43,13 @@ models:
   - name: Qwen2.5-Coder 7B Base
     provider: ollama
     model: qwen2.5-coder:7b-base
+    apiBase: http://localhost:10002
     roles:
       - autocomplete
   - name: Nomic Embed Text v1.5
     provider: ollama
     model: nomic-embed-text:v1.5
+    apiBase: http://localhost:10002
     roles:
       - embed
 context:
@@ -63,11 +66,11 @@ context:
 
 You can interact with the models from your IDE with Continue, but you can also
 use the [Open WebUI](https://openwebui.com) instance accessible at
-[http://localhost:8080](http://localhost:8080).
+[http://localhost:10000](http://localhost:10000).
 
 ### Material for MkDocs
 
 This project uses
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material) as a
 documentation framework, the docs are accessible at
-[http://localhost:8000](http://localhost:8000).
+[http://localhost:10001](http://localhost:10001).

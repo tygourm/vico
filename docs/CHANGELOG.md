@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- 🔧 Change services ports
+
 ### Removed
 
 - 🔧 Remove Prettier default value
