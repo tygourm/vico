@@ -1,5 +1,5 @@
 name: VICO Code Llama 13B
-version: 1.3.2
+version: 1.4.0
 schema: v1
 models:
   - name: Code Llama 13B Instruct
