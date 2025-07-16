@@ -1,5 +1,5 @@
 name: VICO CodeGemma 7B
-version: 1.4.0
+version: 1.5.0
 schema: v1
 models:
   - name: CodeGemma 7B Instruct
