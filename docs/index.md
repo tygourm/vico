@@ -25,7 +25,7 @@ Configure [Continue](https://www.continue.dev) with the models downloaded above.
 
 ```yaml
 name: VICO
-version: 1.5.0
+version: 1.5.1
 schema: v1
 models:
   - name: Qwen 2.5 Coder 3B Instruct
