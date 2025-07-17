@@ -11,4 +11,6 @@ Start the deployment.
 docker compose up
 ```
 
-The docs are accessible at [http://localhost:10001](http://localhost:10001).
+The docs are accessible at
+[http://localhost:12300/index.html](http://localhost:12300/index.html). Setup
+and usage instructions are also available in the [docs](docs/index.md).

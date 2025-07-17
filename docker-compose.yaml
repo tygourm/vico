@@ -1,8 +1,17 @@
 services:
+  mkdocs:
+    image: squidfunk/mkdocs-material:9.6.15
+    ports:
+      - 12300:8000
+    volumes:
+      - ./docs:/docs/docs
+      - ./mkdocs.yml:/docs/mkdocs.yml
+      - ./volumes/mkdocs:/docs/.cache
+
   webui:
     image: ghcr.io/open-webui/open-webui:v0.6.16
     ports:
-      - 10000:8080
+      - 12301:8080
     volumes:
       - ./volumes/webui:/app/backend/data
     environment:
@@ -12,24 +21,12 @@ services:
       ENABLE_EVALUATION_ARENA_MODELS: False
       OLLAMA_BASE_URL: http://ollama:11434
       RAG_EMBEDDING_ENGINE: ollama
-      RAG_EMBEDDING_MODEL: hf.co/nomic-ai/nomic-embed-code-GGUF:Q4_K_M
-
-  mkdocs:
-    image: squidfunk/mkdocs-material:9.6.15
-    ports:
-      - 10001:8000
-    volumes:
-      - ./config.codegemma.yaml:/docs/config.codegemma.yaml
-      - ./config.codellama.yaml:/docs/config.codellama.yaml
-      - ./config.qwencoder.yaml:/docs/config.qwencoder.yaml
-      - ./docs:/docs/docs
-      - ./mkdocs.yml:/docs/mkdocs.yml
-      - ./volumes/mkdocs:/docs/.cache
+      RAG_EMBEDDING_MODEL: nomic-embed-text:v1.5
 
   ollama:
     image: ollama/ollama:0.9.6
     ports:
-      - 10002:11434
+      - 12302:11434
     volumes:
       - ./volumes/ollama:/root/.ollama
     deploy:
