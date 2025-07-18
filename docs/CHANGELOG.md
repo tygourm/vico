@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Changed
 
+- 🔧 Update Open WebUI configuration
 - 🎨 Better chat model
 
 ## [1.5.2] - 2025-07-18

@@ -16,9 +16,6 @@ services:
       - ./volumes/webui:/app/backend/data
     environment:
       WEBUI_AUTH: False
-      ENABLE_CODE_EXECUTION: False
-      ENABLE_CODE_INTERPRETER: False
-      ENABLE_EVALUATION_ARENA_MODELS: False
       OLLAMA_BASE_URL: http://ollama:11434
       RAG_EMBEDDING_ENGINE: ollama
       RAG_EMBEDDING_MODEL: bge-m3:567m
