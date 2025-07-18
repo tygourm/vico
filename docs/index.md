@@ -11,10 +11,10 @@ suggestions. You need an embedding model, a base model and an instruct model.
 The models will not be loaded simultaneously.
 
 ```bash
-docker exec -it $(docker ps | grep ollama | awk '{print $1}') bash
-ollama pull nomic-embed-text:v1.5
-ollama pull qwen2.5-coder:3b-base
-ollama pull qwen2.5-coder:3b-instruct
+ollama=$(docker ps | grep ollama | awk '{print $1}')
+docker exec $ollama ollama pull bge-m3:567m # 1.2 GB
+docker exec $ollama ollama pull qwen2.5-coder:3b # 1.9 GB
+docker exec $ollama ollama pull mistral:7b-instruct # 4.4 GB
 ```
 
 ## Usage
@@ -28,23 +28,23 @@ name: VICO
 version: 1.5.1
 schema: v1
 models:
-  - name: Qwen 2.5 Coder 3B Instruct
+  - name: mistral:7b-instruct
     provider: ollama
-    model: qwen2.5-coder:3b-instruct
+    model: mistral:7b-instruct
     apiBase: http://localhost:12302
     roles:
       - chat
       - edit
       - apply
-  - name: Qwen 2.5 Coder 3B Base
+  - name: qwen2.5-coder:3b
     provider: ollama
-    model: qwen2.5-coder:3b-base
+    model: qwen2.5-coder:3b
     apiBase: http://localhost:12302
     roles:
       - autocomplete
-  - name: Nomic Embed Text v1.5
+  - name: mxbai-embed-large:335m
     provider: ollama
-    model: nomic-embed-text:v1.5
+    model: mxbai-embed-large:335m
     apiBase: http://localhost:12302
     roles:
       - embed

@@ -21,7 +21,7 @@ services:
       ENABLE_EVALUATION_ARENA_MODELS: False
       OLLAMA_BASE_URL: http://ollama:11434
       RAG_EMBEDDING_ENGINE: ollama
-      RAG_EMBEDDING_MODEL: nomic-embed-text:v1.5
+      RAG_EMBEDDING_MODEL: bge-m3:567m
 
   ollama:
     image: ollama/ollama:0.9.6
