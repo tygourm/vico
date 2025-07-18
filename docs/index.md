@@ -25,7 +25,7 @@ Configure [Continue](https://www.continue.dev) with the models downloaded above.
 
 ```yaml
 name: VICO
-version: 1.5.3
+version: 1.5.4
 schema: v1
 models:
   - name: mistral:7b-instruct
