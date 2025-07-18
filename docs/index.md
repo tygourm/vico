@@ -12,9 +12,9 @@ The models will not be loaded simultaneously.
 
 ```bash
 ollama=$(docker ps | grep ollama | awk '{print $1}')
-docker exec $ollama ollama pull bge-m3:567m
-docker exec $ollama ollama pull qwen2.5-coder:1.5b
-docker exec $ollama ollama pull deepseek-r1:7b
+docker exec $ollama ollama pull mxbai-embed-large:335m
+docker exec $ollama ollama pull qwen2.5-coder:3b
+docker exec $ollama ollama pull mistral:7b-instruct
 ```
 
 ## Usage
@@ -28,20 +28,17 @@ name: VICO
 version: 1.5.3
 schema: v1
 models:
-  - name: deepseek-r1:7b
+  - name: mistral:7b-instruct
     provider: ollama
-    model: deepseek-r1:7b
+    model: mistral:7b-instruct
     apiBase: http://localhost:12302
     roles:
       - chat
       - edit
       - apply
-    completionOptions:
-      temperature: 0.6
-      topP: 0.95
-  - name: qwen2.5-coder:1.5b
+  - name: qwen2.5-coder:3b
     provider: ollama
-    model: qwen2.5-coder:1.5b
+    model: qwen2.5-coder:3b
     apiBase: http://localhost:12302
     roles:
       - autocomplete

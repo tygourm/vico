@@ -18,7 +18,7 @@ services:
       WEBUI_AUTH: False
       OLLAMA_BASE_URL: http://ollama:11434
       RAG_EMBEDDING_ENGINE: ollama
-      RAG_EMBEDDING_MODEL: bge-m3:567m
+      RAG_EMBEDDING_MODEL: mxbai-embed-large:335m
 
   ollama:
     image: ollama/ollama:0.9.6
