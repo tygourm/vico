@@ -25,7 +25,7 @@ Configure [Continue](https://www.continue.dev) with the models downloaded above.
 
 ```yaml
 name: VICO
-version: 1.5.2
+version: 1.5.3
 schema: v1
 models:
   - name: deepseek-r1:7b
