@@ -9,7 +9,7 @@ services:
       - ./volumes/mkdocs:/docs/.cache
 
   webui:
-    image: ghcr.io/open-webui/open-webui:v0.6.16
+    image: ghcr.io/open-webui/open-webui:v0.6.18
     ports:
       - 12301:8080
     volumes:
