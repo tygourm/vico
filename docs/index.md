@@ -12,9 +12,9 @@ The models will not be loaded simultaneously.
 
 ```bash
 ollama=$(docker ps | grep ollama | awk '{print $1}')
-docker exec $ollama ollama pull mxbai-embed-large:335m
-docker exec $ollama ollama pull qwen2.5-coder:3b
-docker exec $ollama ollama pull mistral:7b-instruct
+docker exec $ollama ollama pull hf.co/nomic-ai/nomic-embed-code-GGUF:Q4_K_M
+docker exec $ollama ollama pull qwen2.5-coder:7b-base
+docker exec $ollama ollama pull qwen2.5-coder:7b-instruct
 ```
 
 ## Usage
@@ -28,23 +28,23 @@ name: VICO
 version: 1.5.4
 schema: v1
 models:
-  - name: mistral:7b-instruct
+  - name: qwen2.5-coder:7b-instruct
     provider: ollama
-    model: mistral:7b-instruct
+    model: qwen2.5-coder:7b-instruct
     apiBase: http://localhost:12302
     roles:
       - chat
       - edit
       - apply
-  - name: qwen2.5-coder:3b
+  - name: qwen2.5-coder:7b-base
     provider: ollama
-    model: qwen2.5-coder:3b
+    model: qwen2.5-coder:7b-base
     apiBase: http://localhost:12302
     roles:
       - autocomplete
-  - name: mxbai-embed-large:335m
+  - name: hf.co/nomic-ai/nomic-embed-code-GGUF:Q4_K_M
     provider: ollama
-    model: mxbai-embed-large:335m
+    model: hf.co/nomic-ai/nomic-embed-code-GGUF:Q4_K_M
     apiBase: http://localhost:12302
     roles:
       - embed

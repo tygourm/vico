@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Changed
 
+- ✨ Update all models
 - ⬆️ Upgrade Open WebUI
 
 ## [1.5.4] - 2025-07-18
