@@ -12,8 +12,8 @@ The models will not be loaded simultaneously.
 
 ```bash
 ollama=$(docker ps | grep ollama | awk '{print $1}')
-docker exec $ollama ollama pull mxbai-embed-large:335m
-docker exec $ollama ollama pull qwen2.5-coder:7b-base
+docker exec $ollama ollama pull bge-m3:567m
+docker exec $ollama ollama pull qwen2.5-coder:7b
 docker exec $ollama ollama pull mistral:7b-instruct
 ```
 
@@ -35,15 +35,15 @@ models:
     roles: [apply, chat, edit]
     defaultCompletionOptions:
       contextLength: 32768
-      temperature: 0.2
-  - name: qwen2.5-coder:7b-base
+      temperature: 0.6
+  - name: qwen2.5-coder:7b
     provider: ollama
-    model: qwen2.5-coder:7b-base
+    model: qwen2.5-coder:7b
     apiBase: http://localhost:12302
     roles: [autocomplete]
-  - name: mxbai-embed-large:335m
+  - name: bge-m3:567m
     provider: ollama
-    model: mxbai-embed-large:335m
+    model: bge-m3:567m
     apiBase: http://localhost:12302
     roles: [embed]
 context:
